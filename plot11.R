@@ -1,5 +1,6 @@
 NEI <- readRDS("summarySCC_PM25.rds")
 agg <- aggregate(NEI[,c("Emissions")], list(NEI$year), sum)
 plot1 <- png("plot1.png", width=480, height = 480)
-with(agg,plot(Group.1,x, type="o",xlab="year",ylab="PM2.5"))
+names(agg) <- c("Year","Emissions")
+with(agg,plot(Year,Emissions, type="o",xlab="year",ylab=" Total Emissions across US"))
 dev.off()

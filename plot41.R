@@ -4,6 +4,6 @@ coalSCC <- subset(SCCF,grepl("coal", Short.Name, ignore.case = TRUE), drop= TRUE
 cNEI <- subset(NEI,SCC %in% coalSCC[,1])
 agg <- aggregate(cNEI[,c("Emissions")], list(cNEI$year), sum)
 plot4 <- png("plot4.png", width=480, height = 480)
-names(agg) <- c("year","Emissions")
-qplot(year,Emissions,data = agg,geom = c("point","smooth"))
+names(agg) <- c("year","EmissionsFromCoalAcrossUSA")
+qplot(year,EmissionsFromCoalAcrossUSA,data = agg,geom = c("point","smooth"))
 dev.off()
